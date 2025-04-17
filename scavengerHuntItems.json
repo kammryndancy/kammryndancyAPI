@@ -1,0 +1,148 @@
+{
+    "animals": {
+      "any": [
+        { "name": "Squirrel", "image": "https://images.unsplash.com/photo-1507666405895-422eee7d517f?auto=format&fit=crop&q=80&w=500", "description": "A small, furry rodent with a bushy tail." },
+        { "name": "Bird", "image": "https://images.unsplash.com/photo-1520808663317-647b476a81b9?auto=format&fit=crop&q=80&w=500", "description": "A feathered, egg-laying, warm-blooded vertebrate." },
+        { "name": "Rabbit", "image": "https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&q=80&w=500", "description": "A small, furry mammal with long ears and hind legs." },
+        { "name": "Deer", "image": "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=500", "description": "A large, hoofed, herbivorous mammal." },
+        { "name": "Fox", "image": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&q=80&w=500", "description": "A small, carnivorous mammal with a bushy tail." },
+        { "name": "Raccoon", "image": "https://images.unsplash.com/photo-1497752531616-c3afd9760a11?auto=format&fit=crop&q=80&w=500", "description": "A medium-sized, carnivorous mammal with a distinctive black and white mask." },
+        { "name": "Chipmunk", "image": "https://images.unsplash.com/photo-1628560482914-35aa6801c717?auto=format&fit=crop&q=80&w=500", "description": "A small, striped rodent that burrows in the ground." },
+        { "name": "Mouse", "image": "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&q=80&w=500", "description": "A small, rodent mammal that is commonly found in homes." },
+        { "name": "Frog", "image": "https://images.unsplash.com/photo-1472571639800-e657c34fca49?auto=format&fit=crop&q=80&w=500", "description": "A small, amphibious animal with a smooth, moist skin." },
+        { "name": "Turtle", "image": "https://images.unsplash.com/photo-1604984938695-709c41f45cf1?auto=format&fit=crop&q=80&w=500", "description": "A slow-moving, reptilian animal with a shell." }
+      ],
+      "spring": [
+        { "name": "Robin", "image": "https://images.unsplash.com/photo-1608561220714-a7522ff43710?auto=format&fit=crop&q=80&w=500", "description": "A small, migratory bird with a distinctive red breast." },
+        { "name": "Rabbit", "image": "https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&q=80&w=500", "description": "A small, furry mammal with long ears and hind legs." },
+        { "name": "Deer with fawn", "image": "https://images.unsplash.com/photo-1719979176359-68774f057ede?auto=format&fit=crop&q=80&w=500", "description": "A large, hoofed, herbivorous mammal with a young fawn." },
+        { "name": "Tadpole", "image": "https://images.unsplash.com/photo-1652923041767-3963b29e1eb7?auto=format&fit=crop&q=80&w=500", "description": "The larval stage of a frog or toad." },
+        { "name": "Duckling", "image": "https://images.unsplash.com/photo-1613923004014-1e3ab5b741c6?auto=format&fit=crop&q=80&w=500", "description": "A young duck, typically covered in down feathers." },
+        { "name": "Baby squirrel", "image": "https://images.unsplash.com/photo-1507666405895-422eee7d517f?auto=format&fit=crop&q=80&w=500", "description": "A small, furry rodent with a bushy tail, in its early stages of development." },
+        { "name": "Woodpecker", "image": "https://images.unsplash.com/photo-1704294483807-709905d1ce44?auto=format&fit=crop&q=80&w=500", "description": "A medium-sized, wood-boring bird with a distinctive pecking call." }
+      ],
+      "summer": [
+        { "name": "Butterfly", "image": "https://images.unsplash.com/photo-1533048324814-79b0a31982f1?auto=format&fit=crop&q=80&w=500", "description": "A colorful, flying insect with large wings." },
+        { "name": "Hummingbird", "image": "https://images.unsplash.com/photo-1635604133914-e68aa11e99a5?auto=format&fit=crop&q=80&w=500", "description": "A small, iridescent bird that feeds on nectar." },
+        { "name": "Toad", "image": "https://images.unsplash.com/photo-1607964594561-4c736bd23228?auto=format&fit=crop&q=80&w=500", "description": "A small, amphibious animal with a dry, bumpy skin." },
+        { "name": "Snake", "image": "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&q=80&w=500", "description": "A long, slender, carnivorous reptile." },
+        { "name": "Lizard", "image": "https://images.unsplash.com/photo-1521239185358-d1b4410857e9?auto=format&fit=crop&q=80&w=500", "description": "A small to medium-sized, reptilian animal with a scaly skin." },
+        { "name": "Dragonfly", "image": "https://images.unsplash.com/photo-1596913142742-60bb10ebd386?auto=format&fit=crop&q=80&w=500", "description": "A large, flying insect with a long, slender body." },
+        { "name": "Fish", "image": "https://images.unsplash.com/photo-1664731455909-89ac6f1a7b91?auto=format&fit=crop&q=80&w=500", "description": "A cold-blooded, aquatic animal with gills." }
+      ],
+      "fall": [
+        { "name": "Migrating birds", "image": "https://images.unsplash.com/photo-1484704324500-528d0ae4dc7d?auto=format&fit=crop&q=80&w=500", "description": "Birds that travel to warmer climates during the winter months." },
+        { "name": "Squirrel gathering nuts", "image": "https://images.unsplash.com/photo-1507666405895-422eee7d517f?auto=format&fit=crop&q=80&w=500", "description": "A small, furry rodent collecting nuts for the winter." },
+        { "name": "Deer", "image": "https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&q=80&w=500", "description": "A large, hoofed, herbivorous mammal." },
+        { "name": "Wild turkey", "image": "https://images.unsplash.com/photo-1649532716965-c798cda4b153?auto=format&fit=crop&q=80&w=500", "description": "A large, ground-dwelling bird with a distinctive gobble." },
+        { "name": "Hawk", "image": "https://images.unsplash.com/photo-1534251369789-5067c8b8602a?auto=format&fit=crop&q=80&w=500", "description": "A medium-sized, carnivorous bird of prey." },
+        { "name": "Owl", "image": "https://images.unsplash.com/photo-1543549790-8b5f4a028cfb?auto=format&fit=crop&q=80&w=500", "description": "A nocturnal, carnivorous bird of prey with large eyes." }
+      ],
+      "winter": [
+        { "name": "Cardinal", "image": "https://images.unsplash.com/photo-1615146101981-cf25d1a1e6a1?auto=format&fit=crop&q=80&w=500", "description": "A small, songbird with bright red plumage." },
+        { "name": "Blue jay", "image": "https://images.unsplash.com/photo-1623369026097-07d7aab15898?auto=format&fit=crop&q=80&w=500", "description": "A medium-sized, brightly colored bird with a distinctive crest." },
+        { "name": "Deer tracks", "image": "https://images.unsplash.com/photo-1545063914-a1a6ec821c88?auto=format&fit=crop&q=80&w=500", "description": "The tracks left behind by a deer in the snow." },
+        { "name": "Rabbit tracks", "image": "https://images.unsplash.com/photo-1618052837495-f217bfc65d25?auto=format&fit=crop&q=80&w=500", "description": "The tracks left behind by a rabbit in the snow." },
+        { "name": "Squirrel nest", "image": "https://images.unsplash.com/photo-1715043399957-b1ccd4bd02c9?auto=format&fit=crop&q=80&w=500", "description": "A nest built by a squirrel, typically in a tree." },
+        { "name": "Woodpecker", "image": "https://images.unsplash.com/photo-1704294483807-709905d1ce44?auto=format&fit=crop&q=80&w=500", "description": "A medium-sized, wood-boring bird with a distinctive pecking call." },
+        { "name": "Crow", "image": "https://images.unsplash.com/photo-1562590556-7c6ffed1ff96?auto=format&fit=crop&q=80&w=500", "description": "A large, black bird with a distinctive call." }
+      ]
+    },
+    "plants": {
+      "any": [
+        { "name": "Tree", "image": "https://images.unsplash.com/photo-1556680163-e6b89f934d70?auto=format&fit=crop&q=80&w=500", "description": "A perennial plant with a single stem, typically growing from the ground up." },
+        { "name": "Flower", "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=500", "description": "The reproductive structure of a plant, typically colorful and fragrant." },
+        { "name": "Grass", "image": "https://images.unsplash.com/photo-1533460004989-cef01064af7e?auto=format&fit=crop&q=80&w=500", "description": "A type of monocotyledonous green plant with narrow leaves." },
+        { "name": "Moss", "image": "https://images.unsplash.com/photo-1597517697687-acc0c17b2603?auto=format&fit=crop&q=80&w=500", "description": "A small, non-vascular plant that grows in dense green clumps." },
+        { "name": "Fern", "image": "https://images.unsplash.com/photo-1599148401005-fe6d7497cb5e?auto=format&fit=crop&q=80&w=500", "description": "A type of vascular plant with leafy fronds." },
+        { "name": "Mushroom", "image": "https://images.unsplash.com/photo-1571074635691-b910c7a5cdbb?auto=format&fit=crop&q=80&w=500", "description": "The fruiting body of a fungus, typically growing underground." },
+        { "name": "Pine cone", "image": "https://images.unsplash.com/photo-1510189511704-57f96164f531?auto=format&fit=crop&q=80&w=500", "description": "The reproductive structure of a coniferous tree." },
+        { "name": "Tree Seed", "image": "https://images.unsplash.com/photo-1715410774445-900ed2b4c5ba?auto=format&fit=crop&q=80&w=500", "description": "The nut of an oak tree, typically brown and rounded." },
+        { "name": "Leaf", "image": "https://images.unsplash.com/photo-1623039925595-bb30257f6717?auto=format&fit=crop&q=80&w=500", "description": "A flat, green structure that grows on a plant stem." },
+        { "name": "Berry", "image": "https://images.unsplash.com/photo-1597512651354-853bb81bcdad?auto=format&fit=crop&q=80&w=500", "description": "A small, fleshy fruit that grows on a plant." }
+      ],
+      "spring": [
+        { "name": "Dandelion", "image": "https://images.unsplash.com/photo-1559979322-e64a4397c29f?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a yellow head and feathery seeds." },
+        { "name": "Tulip", "image": "https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a cup-shaped bloom." },
+        { "name": "Daffodil", "image": "https://images.unsplash.com/photo-1727330127161-4389ee57f1fa?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a bright yellow trumpet-shaped bloom." },
+        { "name": "Cherry blossom", "image": "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?auto=format&fit=crop&q=80&w=500", "description": "The flower of a cherry tree, typically pink or white." },
+        { "name": "New leaf buds", "image": "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=500", "description": "The early stages of a leaf growing on a plant." },
+        { "name": "Fiddlehead fern", "image": "https://images.unsplash.com/photo-1557279762-62e10ac3b300?auto=format&fit=crop&q=80&w=500", "description": "The curled-up, young fronds of a fern plant." },
+        { "name": "Crocus", "image": "https://images.unsplash.com/photo-1609154731575-4aacfceb8671?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a cup-shaped bloom." }
+      ],
+      "summer": [
+        { "name": "Sunflower", "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a large, bright yellow bloom." },
+        { "name": "Rose", "image": "https://images.unsplash.com/photo-1559563362-c667ba5f5480?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a fragrant, showy bloom." },
+        { "name": "Daisy", "image": "https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a white or yellow bloom." },
+        { "name": "Clover", "image": "https://images.unsplash.com/photo-1489981424607-45c58daf0581?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with a pink or white bloom." },
+        { "name": "Blackberry", "image": "https://images.unsplash.com/photo-1567870335471-1129836babcf?auto=format&fit=crop&q=80&w=500", "description": "A type of fruit that grows on a thorny bush." },
+        { "name": "Raspberry", "image": "https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?auto=format&fit=crop&q=80&w=500", "description": "A type of fruit that grows on a bush." },
+        { "name": "Oak leaf", "image": "https://images.unsplash.com/photo-1688845608141-cba9921b5c5c?auto=format&fit=crop&q=80&w=500", "description": "The leaf of an oak tree, typically lobed or deeply toothed." },
+        { "name": "Maple leaf", "image": "https://images.unsplash.com/photo-1623039925595-bb30257f6717?auto=format&fit=crop&q=80&w=500", "description": "The leaf of a maple tree, typically palmate or deeply toothed." }
+      ],
+      "fall": [
+        { "name": "Red leaf", "image": "https://images.unsplash.com/photo-1623039925595-bb30257f6717?auto=format&fit=crop&q=80&w=500", "description": "A leaf that has turned red during the fall season." },
+        { "name": "Orange leaf", "image": "https://images.unsplash.com/photo-1604068220891-21b96c572d01?auto=format&fit=crop&q=80&w=500", "description": "A leaf that has turned orange during the fall season." },
+        { "name": "Yellow leaf", "image": "https://images.unsplash.com/photo-1613301942137-c7a2c2228919?auto=format&fit=crop&q=80&w=500", "description": "A leaf that has turned yellow during the fall season." },
+        { "name": "Acorn", "image": "https://images.unsplash.com/photo-1602078794418-dba87dccba4d?auto=format&fit=crop&q=80&w=500", "description": "The nut of an oak tree, typically brown and rounded." },
+        { "name": "Pine cone", "image": "https://images.unsplash.com/photo-1510189511704-57f96164f531?auto=format&fit=crop&q=80&w=500", "description": "The reproductive structure of a coniferous tree." },
+        { "name": "Apple", "image": "https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?auto=format&fit=crop&q=80&w=500", "description": "A type of fruit that grows on a tree." },
+        { "name": "Pumpkin", "image": "https://images.unsplash.com/photo-1506917728037-b6af01a7d403?auto=format&fit=crop&q=80&w=500", "description": "A type of fruit that grows on a vine." },
+        { "name": "Gourd", "image": "https://images.unsplash.com/photo-1670005484897-3bdfea6c5c12?auto=format&fit=crop&q=80&w=500", "description": "A type of fruit that grows on a vine." }
+      ],
+      "winter": [
+        { "name": "Evergreen tree", "image": "https://images.unsplash.com/photo-1636412070416-0b4f48c9ae2d?auto=format&fit=crop&q=80&w=500", "description": "A type of tree that keeps its leaves year-round." },
+        { "name": "Holly", "image": "https://images.unsplash.com/photo-1601827008690-4b4e716fd556?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant with bright red berries." },
+        { "name": "Pine needle", "image": "https://images.unsplash.com/photo-1739502753947-93a8684a7cdd?auto=format&fit=crop&q=80&w=500", "description": "A long, thin leaf that grows on a coniferous tree." },
+        { "name": "Mistletoe", "image": "https://images.unsplash.com/photo-1668889614652-2e3807c93234?auto=format&fit=crop&q=80&w=500", "description": "A type of flowering plant that grows on other plants." },
+        { "name": "Dried seed pod", "image": "https://images.unsplash.com/photo-1724879085813-ca4a54689841?auto=format&fit=crop&q=80&w=500", "description": "A seed pod that has dried and opened." },
+        { "name": "Pinecone", "image": "https://images.unsplash.com/photo-1510189511704-57f96164f531?auto=format&fit=crop&q=80&w=500", "description": "The reproductive structure of a coniferous tree." },
+        { "name": "Bare tree", "image": "https://images.unsplash.com/photo-1487111023822-2e903e12f6f0?auto=format&fit=crop&q=80&w=500", "description": "A tree that has lost its leaves." }
+      ]
+    },
+    "insects": {
+      "any": [
+        { "name": "Ant", "image": "https://images.unsplash.com/photo-1682488851014-140c7a7be1b9?auto=format&fit=crop&q=80&w=500", "description": "A small, social insect that lives in colonies." },
+        { "name": "Spider", "image": "https://images.unsplash.com/photo-1600001040566-2c86ad40520e?auto=format&fit=crop&q=80&w=500", "description": "A small, eight-legged arachnid that spins webs." },
+        { "name": "Beetle", "image": "https://images.unsplash.com/photo-1557052426-3f754e02f5a9?auto=format&fit=crop&q=80&w=500", "description": "A small, hard-shelled insect with a rounded body." },
+        { "name": "Worm", "image": "https://images.unsplash.com/photo-1635547340785-40513259789b?auto=format&fit=crop&q=80&w=500", "description": "A long, slender invertebrate animal." },
+        { "name": "Centipede", "image": "https://images.unsplash.com/photo-1718638585020-98e6a49aa918?auto=format&fit=crop&q=80&w=500", "description": "A long, flat arthropod with many legs." },
+        { "name": "Pill bug", "image": "https://images.unsplash.com/photo-1739039577444-acba9b0fc8ac?auto=format&fit=crop&q=80&w=500", "description": "A small, armored crustacean that rolls into a ball." },
+        { "name": "Cricket", "image": "https://images.unsplash.com/photo-1531863390120-94cda59c9347?auto=format&fit=crop&q=80&w=500", "description": "A small, jumping insect with a distinctive chirping call." }
+      ],
+      "spring": [
+        { "name": "Ladybug", "image": "https://images.unsplash.com/photo-1526773357673-2d4e8116d497?auto=format&fit=crop&q=80&w=500", "description": "A small, beetles with a red and black body." },
+        { "name": "Bee", "image": "https://images.unsplash.com/photo-1589526261866-ab0d34f8dc19?auto=format&fit=crop&q=80&w=500", "description": "A small, flying insect that collects nectar." },
+        { "name": "Earthworm", "image": "https://images.unsplash.com/photo-1708191225844-44ba7ab8b71f?auto=format&fit=crop&q=80&w=500", "description": "A long, slender invertebrate animal that burrows in soil." },
+        { "name": "Caterpillar", "image": "https://images.unsplash.com/photo-1562224451-3a2593f83e47?auto=format&fit=crop&q=80&w=500", "description": "The larval stage of a butterfly or moth." },
+        { "name": "Aphid", "image": "https://images.unsplash.com/photo-1522325636832-5dbc1440f793?auto=format&fit=crop&q=80&w=500", "description": "A small, soft-bodied insect that feeds on plant sap." },
+        { "name": "Ant", "image": "https://images.unsplash.com/photo-1566407528571-63a385d3e0f4?auto=format&fit=crop&q=80&w=500", "description": "A small, social insect that lives in colonies." },
+        { "name": "Beetle", "image": "https://images.unsplash.com/photo-1557052426-3f754e02f5a9?auto=format&fit=crop&q=80&w=500", "description": "A small, hard-shelled insect with a rounded body." }
+      ],
+      "summer": [
+        { "name": "Butterfly", "image": "https://images.unsplash.com/photo-1533048324814-79b0a31982f1?auto=format&fit=crop&q=80&w=500", "description": "A colorful, flying insect with large wings." },
+        { "name": "Dragonfly", "image": "https://images.unsplash.com/photo-1591105575839-1fb30d5ce4a5?auto=format&fit=crop&q=80&w=500", "description": "A large, flying insect with a long, slender body." },
+        { "name": "Grasshopper", "image": "https://images.unsplash.com/photo-1631227678110-9ce79fb831b2?auto=format&fit=crop&q=80&w=500", "description": "A large, jumping insect with a distinctive chirping call." },
+        { "name": "Cicada", "image": "https://images.unsplash.com/photo-1673192262158-1fe3c2fbe9f5?auto=format&fit=crop&q=80&w=500", "description": "A large, flying insect with a distinctive buzzing call." },
+        { "name": "Firefly", "image": "https://images.unsplash.com/photo-1647960312609-c3b92395123a?auto=format&fit=crop&q=80&w=500", "description": "A small, flying insect that glows in the dark." },
+        { "name": "Bee", "image": "https://images.unsplash.com/photo-1589526261866-ab0d34f8dc19?auto=format&fit=crop&q=80&w=500", "description": "A small, flying insect that collects nectar." },
+        { "name": "Wasp", "image": "https://images.unsplash.com/photo-1568039849305-ff62a3cb3196?auto=format&fit=crop&q=80&w=500", "description": "A small, flying insect that is similar to a bee." },
+        { "name": "Mosquito", "image": "https://images.unsplash.com/photo-1572262086204-3909bfc93ea0?auto=format&fit=crop&q=80&w=500", "description": "A small, flying insect that feeds on blood." }
+      ],
+      "fall": [
+        { "name": "Spider", "image": "https://images.unsplash.com/photo-1600001040566-2c86ad40520e?auto=format&fit=crop&q=80&w=500", "description": "A small, eight-legged arachnid that spins webs." },
+        { "name": "Cricket", "image": "https://images.unsplash.com/photo-1531863390120-94cda59c9347?auto=format&fit=crop&q=80&w=500", "description": "A small, jumping insect with a distinctive chirping call." },
+        { "name": "Woolly bear caterpillar", "image": "https://images.unsplash.com/photo-1712942120127-ecd05ef8fe25?auto=format&fit=crop&q=80&w=500", "description": "The larval stage of a moth, typically covered in hair." },
+        { "name": "Ladybug", "image": "https://images.unsplash.com/photo-1526773357673-2d4e8116d497?auto=format&fit=crop&q=80&w=500", "description": "A small, beetles with a red and black body." },
+        { "name": "Stink bug", "image": "https://images.unsplash.com/photo-1656863166003-1e857dbc5270?auto=format&fit=crop&q=80&w=500", "description": "A small, shield-shaped insect with a distinctive odor." },
+        { "name": "Praying mantis", "image": "https://images.unsplash.com/photo-1502253528522-ecc355ddcd3b?auto=format&fit=crop&q=80&w=500", "description": "A large, predatory insect with a distinctive prayer-like stance." }
+      ],
+      "winter": [
+        { "name": "Spider web", "image": "https://images.unsplash.com/photo-1446582186851-3fe172f6acb9?auto=format&fit=crop&q=80&w=500", "description": "A web spun by a spider, typically used for catching prey." },
+        { "name": "Hibernating ladybug", "image": "https://images.unsplash.com/photo-1526773357673-2d4e8116d497?auto=format&fit=crop&q=80&w=500", "description": "A ladybug that is in a state of dormancy during the winter months." },
+        { "name": "Insect cocoon", "image": "https://images.unsplash.com/photo-1704026438241-0b9d0c0eb8de?auto=format&fit=crop&q=80&w=500", "description": "A protective casing that surrounds an insect during its transformation into a pupa." },
+        { "name": "Insect eggs", "image": "https://images.unsplash.com/photo-1571710755490-a22311760049?auto=format&fit=crop&q=80&w=500", "description": "The eggs of an insect, typically laid in a protected location." },
+        { "name": "Dormant beehive", "image": "https://images.unsplash.com/photo-1734816831577-f6429f1c3938?auto=format&fit=crop&q=80&w=500", "description": "A beehive that is in a state of dormancy during the winter months." }
+      ]
+    }
+}
