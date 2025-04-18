@@ -1,0 +1,209 @@
+{
+  "info": {
+    "_postman_id": "d8e9b9e4-8a7d-4b6a-bb1d-1c1e8f9f0e01",
+    "name": "kammryndancyAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for kammryndancyAPI with authentication and main endpoints."
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "userId", "value": "your_user_id" },
+    { "key": "apiKey", "value": "your_api_key" },
+    { "key": "blacklistId", "value": "brewfather_batch_id_here" },
+    { "key": "adminAuthBase64", "value": "{{userId}}:{{apiKey}}:admin" },
+    { "key": "frontendOrigin", "value": "http://localhost:3000" },
+    { "key": "frontendAuthBase64", "value": "{{userId}}:{{apiKey}}:frontend" },
+    { "key": "defaultAuthBase64", "value": "{{userId}}:{{apiKey}}:default" },
+    { "key": "name", "value": "Brown Trout" },
+    { "key": "category", "value": "animals" },
+    { "key": "season", "value": "spring" },
+    { "key": "description", "value": "A freshwater fish known for its olive to reddish-brown color, black and red spots, and slender body."},
+    { "key": "image", "value": "https://images.unsplash.com/photo-1713796280137-c12e4a768039?auto=format&fit=crop&q=80&w=500"}
+  ],
+  "item": [
+    {
+      "name": "Scavenger Hunt - Get All Items",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/scavengerhunt",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "scavengerhunt"]
+        }
+      }
+    },
+    {
+      "name": "Scavenger Hunt - Filter Items",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/scavengerhunt/filter?count=5&category=plants&season=spring",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "scavengerhunt", "filter"],
+          "query": [
+            { "key": "count", "value": "5" },
+            { "key": "category", "value": "plants" },
+            { "key": "season", "value": "spring" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Scavenger Hunt - Get Specific Item",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/scavengerhunt/{{name}}/{{category}}/{{season}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "scavengerhunt", "{{name}}", "{{category}}", "{{season}}"]
+        }
+      }
+    },
+    {
+      "name": "Scavenger Hunt - Add Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sample Item\",\n  \"category\": \"plants\",\n  \"season\": \"spring\",\n  \"image\": \"https://example.com/image.jpg\",\n  \"description\": \"A sample scavenger hunt item.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/scavengerhunt",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "scavengerhunt"]
+        }
+      }
+    },
+    {
+      "name": "BeerRecipe - Get All",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/beerrecipes",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "beerrecipes"]
+        }
+      }
+    },
+    {
+      "name": "BeerRecipe - Scrape Brewfather",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/scrape",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "scrape"]
+        }
+      }
+    },
+    {
+      "name": "Blacklist - Get All",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Basic {{authBase64}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/blacklist",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "blacklist"]
+        }
+      }
+    },
+    {
+      "name": "Blacklist - Add BatchId",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Basic {{authBase64}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"brewfatherId\": \"{{blacklistId}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/blacklist",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "blacklist"]
+        }
+      }
+    },
+    {
+      "name": "Blacklist - Remove BatchId",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Basic {{authBase64}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/blacklist/{{blacklistId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "blacklist", "{{blacklistId}}"]
+        }
+      }
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set the Authorization header for all requests dynamically",
+          "const userId = pm.collectionVariables.get('userId');",
+          "const apiKey = pm.collectionVariables.get('apiKey');",
+          "const base64 = Buffer.from(`${userId}:${apiKey}`).toString('base64');",
+          "pm.collectionVariables.set('authBase64', base64);"
+        ]
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 const axios = require('axios');
 const mongoose = require('mongoose');
 const BeerRecipe = mongoose.models.BeerRecipe || require('./beerRecipe.model');
+const BlacklistedBatch = require('./models/blacklistedBatch.model');
 
 async function fetchBatches(startAfter = null) {
   const { BREWFATHER_USERID, BREWFATHER_API_KEY } = process.env;
@@ -41,29 +42,33 @@ async function scrapeAndSaveAll() {
   let hasMore = true;
   let totalNew = 0;
 
+  // Fetch blacklist from DB
+  const blacklistedDocs = await BlacklistedBatch.find({}, { brewfatherId: 1 });
+  const blacklist = new Set(blacklistedDocs.map(b => b.brewfatherId));
+
   while (hasMore) {
     const batches = await fetchBatches(startAfter);
     if (!batches.length) break;
 
-    // Check which batches are new
+    // Check which batches are new and not blacklisted
     const brewfatherIds = batches.map(b => b._id);
     const existing = await BeerRecipe.find({ brewfatherId: { $in: brewfatherIds } }, { brewfatherId: 1 });
     const existingIds = new Set(existing.map(e => e.brewfatherId));
 
-    const newBatches = batches.filter(b => !existingIds.has(b._id));
+    const newBatches = batches.filter(b => !existingIds.has(b._id) && !blacklist.has(b._id));
     if (newBatches.length === 0) break;
 
     const recipes = newBatches.map(transformBatchToBeerRecipe);
     await BeerRecipe.insertMany(recipes);
     totalNew += recipes.length;
 
-    // Prepare for next page
-    // If a duplicate was found, start after the last duplicate (most recent in this batch)
-    const lastBatch = batches[batches.length - 1];
-    startAfter = lastBatch._id;
+    // Pagination: move to next batch
+    startAfter = batches[batches.length - 1]._id;
     hasMore = batches.length === 50;
   }
+
   console.log(`Saved ${totalNew} new recipes`);
+  return totalNew;
 }
 
-module.exports = { scrapeAndSaveAll };
+module.exports = { fetchBatches, transformBatchToBeerRecipe, scrapeAndSaveAll };

@@ -21,6 +21,27 @@ A Node.js RESTful API for:
   - Update an item by name, category, and season
   - Add a new item
 
+## API Authentication & Roles
+
+All `/api` endpoints are protected by an authentication middleware. Requests must include an `Authorization` header in the following format:
+
+```
+Authorization: Basic <base64(USER_ID:API_KEY[:role])>
+```
+- `USER_ID` and `API_KEY` must match the values in your `.env` file.
+- Optionally, you can include a `role` (e.g., `admin`).
+- If the request's `Origin` header matches your configured `FRONTEND_ORIGIN`, the user is automatically assigned the `frontend` role.
+- The user's role is attached to `req.user` for use in route handlers.
+
+### Example (using curl)
+
+```
+USER_ID=your_user_id
+API_KEY=your_api_key
+AUTH=$(echo -n "$USER_ID:$API_KEY" | base64)
+curl -H "Authorization: Basic $AUTH" http://localhost:3000/api/scavengerhunt
+```
+
 ## API Endpoints
 
 ### BeerRecipe
@@ -56,6 +77,9 @@ A Node.js RESTful API for:
    BREWFATHER_USERID=your_brewfather_userid
    BREWFATHER_API_KEY=your_brewfather_api_key
    PORT=3000
+   API_KEY=your_api_key
+   USER_ID=your_user_id
+   FRONTEND_ORIGIN=http://localhost:3000
    ```
 4. **Start the server:**
    ```sh
@@ -69,6 +93,7 @@ A Node.js RESTful API for:
 - The scavenger hunt loader will upsert items from the JSON file at startup.
 - The Brewfather API requires a valid userid and API key (see their docs for details).
 - The project uses Mongoose for MongoDB object modeling.
+- User roles are supported for fine-grained access control (see `middleware/auth.js` and `middleware/roles.js`).
 
 ## License
 MIT

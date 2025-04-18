@@ -3,13 +3,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const beerRecipeRoutes = require('./routes/beerRecipe');
 const scavengerHuntRoutes = require('./routes/scavengerHunt');
+const blacklistRoutes = require('./routes/blacklist');
 const { scrapeAndSaveAll } = require('./brewfatherScraper');
 const { loadScavengerHuntItems } = require('./controllers/scavengerHuntController');
+const auth = require('./middleware/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+// Protect all API routes with auth middleware
+app.use('/api', auth);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -23,6 +28,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 app.use('/api/beerrecipes', beerRecipeRoutes);
 app.use('/api/scavengerhunt', scavengerHuntRoutes);
+app.use('/api/blacklist', blacklistRoutes);
 
 app.post('/api/scrape', async (req, res) => {
   try {
