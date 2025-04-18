@@ -9,7 +9,7 @@ async function fetchBatches(startAfter = null) {
     throw new Error('Missing Brewfather credentials (BREWFATHER_USERID or BREWFATHER_API_KEY)');
   }
   const authString = Buffer.from(`${BREWFATHER_USERID}:${BREWFATHER_API_KEY}`).toString('base64');
-  let url = 'https://api.brewfather.app/v2/batches?complete=true&limit=50';
+  let url = 'https://api.brewfather.app/v2/batches?complete=true&limit=50&order_by=batchNo';
   if (startAfter) url += `&start_after=${startAfter}`;
   const headers = { 'authorization': `Basic ${authString}` };
   const response = await axios.get(url, { headers });

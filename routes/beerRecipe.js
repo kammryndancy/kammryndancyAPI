@@ -8,4 +8,7 @@ router.post('/', ctrl.create);
 router.put('/:id', ctrl.update);
 router.delete('/:id', ctrl.delete);
 
+// Find recipes by name (wildcard/LIKE)
+router.get('/by-name/:name', ctrl.getByName);
+
 module.exports = router;
