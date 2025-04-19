@@ -42,7 +42,7 @@ jobs:
         if: success()
         run: |
           mkdir -p artifact
-          cp -r * artifact/
+          rsync -av --exclude artifact ./ artifact/
         shell: bash
         # Optionally use actions/upload-artifact if you want to pass to another job
 
