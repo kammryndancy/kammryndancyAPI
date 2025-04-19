@@ -44,13 +44,25 @@ jobs:
           mkdir -p artifact
           rsync -av --exclude artifact ./ artifact/
         shell: bash
-        # Optionally use actions/upload-artifact if you want to pass to another job
+
+      - name: Upload production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-artifact
+          path: artifact/
 
   deploy:
     needs: build-test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    environment: production
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
+      - name: Download production artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: production-artifact
+          path: artifact/
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -64,19 +76,9 @@ jobs:
           echo "USER_ID=${{ secrets.USER_ID }}" >> .env
           echo "FRONTEND_ORIGIN=${{ vars.FRONTEND_ORIGIN }}" >> .env
 
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+      - name: Install dependencies
+        run: npm install
 
-      - name: Copy files to EC2
+      - name: Restart app with PM2
         run: |
-          rsync -avz --exclude node_modules --exclude .git ./ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}
-
-      - name: Install dependencies and restart app on EC2
-        run: |
-          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
-            cd ${{ secrets.EC2_PATH }} &&
-            npm install &&
-            pm2 restart index.js || pm2 start index.js --name kammryndancyAPI
-          '
+          pm2 restart index.js || pm2 start index.js --name kammryndancyAPI
