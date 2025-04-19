@@ -37,7 +37,7 @@ function transformBatchToBeerRecipe(batch) {
   };
 }
 
-async function scrapeAndSaveAll() {
+async function scrapeAndSaveAll(fetchBatchesImpl = fetchBatches) {
   let startAfter = null;
   let hasMore = true;
   let totalNew = 0;
@@ -47,7 +47,7 @@ async function scrapeAndSaveAll() {
   const blacklist = new Set(blacklistedDocs.map(b => b.brewfatherId));
 
   while (hasMore) {
-    const batches = await fetchBatches(startAfter);
+    const batches = await fetchBatchesImpl(startAfter);
     if (!batches.length) break;
 
     // Check which batches are new and not blacklisted
@@ -71,4 +71,8 @@ async function scrapeAndSaveAll() {
   return totalNew;
 }
 
-module.exports = { fetchBatches, transformBatchToBeerRecipe, scrapeAndSaveAll };
+module.exports = {
+  fetchBatches,
+  transformBatchToBeerRecipe,
+  scrapeAndSaveAll
+};
