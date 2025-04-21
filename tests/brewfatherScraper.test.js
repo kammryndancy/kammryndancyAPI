@@ -1,7 +1,6 @@
 // Mock the exact paths as used in brewfatherScraper.js
 jest.mock('../models/blacklistedBatch.model', () => ({
   find: jest.fn().mockImplementation((criteria, projection) => {
-    console.log('BlacklistedBatch.find called with criteria:', criteria, 'projection:', projection);
     return Promise.resolve([{ brewfatherId: 'blacklisted-batch' }]);
   }),
   create: jest.fn(),
@@ -11,11 +10,9 @@ jest.mock('../models/blacklistedBatch.model', () => ({
 // Also mock the BeerRecipe using the path in brewfatherScraper.js
 jest.mock('../beerRecipe.model', () => ({
   find: jest.fn().mockImplementation((criteria, projection) => {
-    console.log('BeerRecipe.find called with criteria:', criteria, 'projection:', projection);
     return Promise.resolve([{ brewfatherId: 'existing-batch' }]);
   }),
   insertMany: jest.fn().mockImplementation(docs => {
-    console.log('BeerRecipe.insertMany called with', docs.length, 'docs');
     return Promise.resolve(docs);
   }),
   deleteMany: jest.fn()
@@ -44,11 +41,9 @@ describe('Brewfather Scraper', () => {
 
   it('should insert new batches and skip blacklisted and existing', async () => {
     jest.setTimeout(10000); // Give more time for debug
-    console.log('TEST STARTED');
 
     // Reset any mock implementations set by other tests
     BlacklistedBatch.find.mockImplementation((criteria, projection) => {
-      console.log('BlacklistedBatch.find called with criteria:', criteria, 'projection:', projection);
       return Promise.resolve([{ brewfatherId: 'blacklisted-batch' }]);
     });
 
@@ -62,17 +57,13 @@ describe('Brewfather Scraper', () => {
 
     const mockFetchBatches = jest.fn()
       .mockImplementationOnce(async () => {
-        console.log('MOCK fetchBatches CALLED (first)');
         return batchesFirstCall;
       })
       .mockImplementation(async () => {
-        console.log('MOCK fetchBatches CALLED (subsequent)');
         return [];
       });
 
-    console.log('BEFORE scrapeAndSaveAll');
     const inserted = await scrapeAndSaveAll(mockFetchBatches);
-    console.log('Inserted count:', inserted);
     expect(inserted).toBe(1);
     expect(BlacklistedBatch.find).toHaveBeenCalledTimes(1);
     expect(BlacklistedBatch.find).toHaveBeenCalledWith({}, { brewfatherId: 1 });
