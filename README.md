@@ -44,9 +44,14 @@ curl -H "Authorization: Basic $AUTH" http://localhost:3000/api/scavengerhunt
 
 ## API Endpoints
 
+### Health
+- `GET /health` — Application and database connection health check
+- `GET /health/open` — Simple application liveness check (no DB)
+
 ### BeerRecipe
 - `GET /api/beerrecipes` — List all beer recipes
 - `GET /api/beerrecipes/:id` — Get a beer recipe by ID
+- `GET /api/beerrecipes/by-name/:name` — Get beer recipes by (partial) name match
 - `POST /api/beerrecipes` — Create a new beer recipe
 - `PUT /api/beerrecipes/:id` — Update a beer recipe
 - `DELETE /api/beerrecipes/:id` — Delete a beer recipe
