@@ -22,6 +22,30 @@
   ],
   "item": [
     {
+      "name": "Health - App & DB",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Health - Open (Liveness)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health/open",
+          "host": ["{{baseUrl}}"],
+          "path": ["health", "open"]
+        }
+      }
+    },
+    {
       "name": "Scavenger Hunt - Get All Items",
       "request": {
         "method": "GET",
@@ -122,6 +146,24 @@
           "raw": "{{baseUrl}}/api/beerrecipes",
           "host": ["{{baseUrl}}"],
           "path": ["api", "beerrecipes"]
+        }
+      }
+    },
+    {
+      "name": "BeerRecipe - Get By Name",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic {{authBase64}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/beerrecipes/by-name/sample",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "beerrecipes", "by-name", "sample"]
         }
       }
     },
