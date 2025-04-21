@@ -11,6 +11,7 @@ const BeerRecipeSchema = new mongoose.Schema({
   name: { type: String, required: true },
   youtubeUrl: String,
   imageUrl: String,
+  recipeUrl: String,
   malts: [String],
   hops: [String],
   yeast: [String],
