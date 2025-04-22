@@ -5,6 +5,7 @@ const blacklistRoutes = require('../../routes/blacklist');
 require('dotenv').config();
 
 jest.mock('../../models/blacklistedBatch.model');
+jest.mock('../../middleware/auth', () => (req, res, next) => next());
 
 const app = express();
 app.use(express.json());

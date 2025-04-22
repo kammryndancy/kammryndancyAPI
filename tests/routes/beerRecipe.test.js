@@ -2,7 +2,7 @@ const request = require('supertest');
 const express = require('express');
 const BeerRecipe = require('../../models/beerRecipe.model');
 const beerRecipeRoutes = require('../../routes/beerRecipe');
-
+jest.mock('../../middleware/auth', () => (req, res, next) => next());
 jest.mock('../../models/beerRecipe.model');
 
 const app = express();
