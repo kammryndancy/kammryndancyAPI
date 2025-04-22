@@ -13,11 +13,24 @@ const auth = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const frontendOrigin = process.env.FRONTEND_ORIGIN || 'http://localhost:4200';
+const allowedOrigins = [
+  'http://localhost:4200',
+  'http://localhost:3000',
+  'http://kammryndancy.com',
+  'https://kammryndancy.com'
+];
 
 // Enable CORS for requests from the configured frontend origin
 app.use(cors({
-  origin: frontendOrigin,
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 
