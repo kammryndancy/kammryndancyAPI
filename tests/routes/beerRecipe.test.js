@@ -39,7 +39,8 @@ describe('BeerRecipe API', () => {
   });
 
   it('should get all beer recipes', async () => {
-    BeerRecipe.find.mockResolvedValue([testRecipe]);
+    const mockSort = jest.fn().mockReturnValue(Promise.resolve([testRecipe]));
+    BeerRecipe.find.mockReturnValue({ sort: mockSort });
     const res = await request(app).get('/api/beerrecipes').expect(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
@@ -53,7 +54,11 @@ describe('BeerRecipe API', () => {
   it('should get a recipe by name (wildcard)', async () => {
     BeerRecipe.find.mockResolvedValue([{ ...testRecipe, _id: recipeId }]);
     const res = await request(app).get('/api/beerrecipes/by-name/ipa').expect(200);
-    expect(res.body.some(r => r.name.toLowerCase().includes('ipa'))).toBe(true);
+    expect(Array.isArray(res.body)).toBe(true);
+    if (!Array.isArray(res.body) || res.body.length === 0) {
+      throw new Error('Expected non-empty array for recipes by name (wildcard)');
+    }
+    expect(res.body.some(r => r.name && r.name.toLowerCase().includes('ipa'))).toBe(true);
   });
 
   it('should update a recipe', async () => {

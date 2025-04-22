@@ -62,7 +62,6 @@ async function getItem(req, res) {
 async function updateItem(req, res) {
   const { name, category, season } = req.params;
   const { image, description } = req.body;
-  console.log(name, category, season, image, description);
   const updated = await ScavengerHuntItem.findOneAndUpdate(
     { name, category, season },
     { image, description },

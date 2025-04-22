@@ -8,7 +8,7 @@ jest.mock('../models/blacklistedBatch.model', () => ({
 }));
 
 // Also mock the BeerRecipe using the path in brewfatherScraper.js
-jest.mock('../beerRecipe.model', () => ({
+jest.mock('../models/beerRecipe.model', () => ({
   find: jest.fn().mockImplementation((criteria, projection) => {
     return Promise.resolve([{ brewfatherId: 'existing-batch' }]);
   }),
@@ -29,7 +29,7 @@ jest.mock('../brewfatherScraper', () => {
 
 // Import the mocked models
 const BlacklistedBatch = require('../models/blacklistedBatch.model');
-const BeerRecipe = require('../beerRecipe.model');
+const BeerRecipe = require('../models/beerRecipe.model');
 const brewfatherScraper = require('../brewfatherScraper');
 const { scrapeAndSaveAll } = brewfatherScraper;
 require('dotenv').config();

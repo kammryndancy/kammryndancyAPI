@@ -19,8 +19,10 @@ describe('BeerRecipe Controller', () => {
   describe('getAll', () => {
     it('should return all recipes', async () => {
       const fakeRecipes = [{ name: 'A' }, { name: 'B' }];
-      BeerRecipe.find.mockResolvedValue(fakeRecipes);
+      const mockSort = jest.fn().mockReturnValue(Promise.resolve(fakeRecipes));
+      BeerRecipe.find.mockReturnValue({ sort: mockSort });
       await beerRecipeController.getAll(req, res);
+      console.log(res.json);
       expect(res.json).toHaveBeenCalledWith(fakeRecipes);
     });
   });
