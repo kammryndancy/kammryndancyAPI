@@ -2,7 +2,7 @@ const request = require('supertest');
 const express = require('express');
 const ScavengerHuntItem = require('../../models/scavengerHuntItem.model');
 const scavengerHuntRoutes = require('../../routes/scavengerHunt');
-
+jest.mock('../../middleware/auth', () => (req, res, next) => next());
 jest.mock('../../models/scavengerHuntItem.model');
 
 const app = express();

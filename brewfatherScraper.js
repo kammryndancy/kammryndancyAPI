@@ -33,7 +33,8 @@ function transformBatchToBeerRecipe(batch) {
     buGu: batch.estimatedBuGuRatio || 0,
     description: batch.recipe?.notes || '',
     awards: [],
-    brewfatherId: batch._id // Store Brewfather batch _id for deduplication
+    brewfatherId: batch._id, // Store Brewfather batch _id for deduplication
+    recipeUrl: batch.recipe?.url || undefined
   };
 }
 
