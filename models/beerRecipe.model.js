@@ -24,7 +24,8 @@ const BeerRecipeSchema = new mongoose.Schema({
   buGu: Number,
   description: String,
   awards: [AwardSchema],
-  brewfatherId: String
+  brewfatherId: String,
+  userPriority: { type: Number, default: 3, index: true }
 });
 
 module.exports = mongoose.models.BeerRecipe || mongoose.model('BeerRecipe', BeerRecipeSchema);

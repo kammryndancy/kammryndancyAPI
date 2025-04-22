@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const BeerRecipe = mongoose.models.BeerRecipe || require('../models/beerRecipe.model');
 
 exports.getAll = async (req, res) => {
-  const recipes = await BeerRecipe.find();
+  const recipes = await BeerRecipe.find().sort({ userPriority: 1 });
   res.json(recipes);
 };
 

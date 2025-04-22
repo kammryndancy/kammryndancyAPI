@@ -1,6 +1,6 @@
 const axios = require('axios');
 const mongoose = require('mongoose');
-const BeerRecipe = mongoose.models.BeerRecipe || require('./beerRecipe.model');
+const BeerRecipe = mongoose.models.BeerRecipe || require('./models/beerRecipe.model');
 const BlacklistedBatch = require('./models/blacklistedBatch.model');
 
 async function fetchBatches(startAfter = null) {
