@@ -6,6 +6,7 @@ const beerRecipeRoutes = require('./routes/beerRecipe');
 const scavengerHuntRoutes = require('./routes/scavengerHunt');
 const blacklistRoutes = require('./routes/blacklist');
 const healthRoutes = require('./routes/health');
+const persistentHuntRoutes = require('./routes/persistentHunt');
 const { scrapeAndSaveAll } = require('./brewfatherScraper');
 const { loadScavengerHuntItems } = require('./controllers/scavengerHuntController');
 const auth = require('./middleware/auth');
@@ -52,6 +53,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use('/api/beerrecipes', beerRecipeRoutes);
 app.use('/api/scavengerhunt', scavengerHuntRoutes);
 app.use('/api/blacklist', blacklistRoutes);
+app.use('/api/persistent-hunt', persistentHuntRoutes);
 
 app.post('/api/scrape', auth, async (req, res) => {
   try {
