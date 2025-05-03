@@ -1,104 +1,91 @@
-# kammryndancyAPI
+# Kammryndancy Website & API
 
-A Node.js RESTful API for:
-- Scraping brewing batches from the Brewfather API and storing them in MongoDB
-- Managing scavenger hunt items (animals, plants, insects) with images and descriptions
+Kammryndancy is a full-stack web application for homebrewing and nature scavenger hunts. It features a modern Angular frontend and a Node.js/Express REST API backend with MongoDB for persistent storage.
+
+## Website Overview
+- **Frontend:** Angular (TypeScript)
+- **Backend/API:** Node.js, Express
+- **Database:** MongoDB
+- **Deployment:** GitHub Actions, PM2, self-hosted/VM
 
 ## Features
-
-### Brewfather Batch Scraper
-- Fetches batches from the Brewfather API using Basic Auth (userid:apikey, base64 encoded)
-- Transforms and stores batch data as `BeerRecipe` documents in MongoDB
-- Prevents duplicates using unique identifiers
-- Environment-based configuration for Brewfather credentials and MongoDB connection
-
-### Scavenger Hunt Items
-- Loads scavenger hunt items from `scavengerHuntItems.json` into MongoDB on app start
-- REST API to:
-  - Get all items
-  - Get random items with optional filters (category, season, count)
-  - Get a specific item by name, category, and season
-  - Update an item by name, category, and season
-  - Add a new item
-
-## API Authentication & Roles
-
-All `/api` endpoints are protected by an authentication middleware. Requests must include an `Authorization` header in the following format:
-
-```
-Authorization: Basic <base64(USER_ID:API_KEY[:role])>
-```
-- `USER_ID` and `API_KEY` must match the values in your `.env` file.
-- Optionally, you can include a `role` (e.g., `admin`).
-- If the request's `Origin` header matches your configured `FRONTEND_ORIGIN`, the user is automatically assigned the `frontend` role.
-- The user's role is attached to `req.user` for use in route handlers.
-
-### Example (using curl)
-
-```
-USER_ID=your_user_id
-API_KEY=your_api_key
-AUTH=$(echo -n "$USER_ID:$API_KEY" | base64)
-curl -H "Authorization: Basic $AUTH" http://localhost:3000/api/scavengerhunt
-```
-
-## API Endpoints
-
-### Health
-- `GET /health` — Application and database connection health check
-- `GET /health/open` — Simple application liveness check (no DB)
-
-### BeerRecipe
-- `GET /api/beerrecipes` — List all beer recipes
-- `GET /api/beerrecipes/:id` — Get a beer recipe by ID
-- `GET /api/beerrecipes/by-name/:name` — Get beer recipes by (partial) name match
-- `POST /api/beerrecipes` — Create a new beer recipe
-- `PUT /api/beerrecipes/:id` — Update a beer recipe
-- `DELETE /api/beerrecipes/:id` — Delete a beer recipe
-- `POST /api/scrape` — Scrape and save new batches from Brewfather
+### Brewing
+- Browse a collection of beer recipes, each with malts, hops, yeast, adjuncts, ABV, SRM, IBU, and more.
+- Recipes can include images, YouTube links, and external recipe URLs.
+- Recipes are prioritized for display using a `userPriority` field.
+- Admins can add, update, or delete recipes (protected endpoints).
+- Beer recipes can be scraped and imported from Brewfather via the backend.
 
 ### Scavenger Hunt
-- `GET /api/scavengerhunt` — List all items
-- `GET /api/scavengerhunt/filter?count=5&category=plants&season=spring` — Get up to 5 random plant items for spring
-- `GET /api/scavengerhunt/:name/:category/:season` — Get a specific item
-- `PUT /api/scavengerhunt/:name/:category/:season` — Update an item
-- `POST /api/scavengerhunt` — Add a new item
+- Explore a database of plants, animals, and insects, each with images and descriptions.
+- Generate random scavenger hunt lists filtered by category, season, or count.
+- Add, update, or remove scavenger hunt items (admin only).
 
-## Setup
+## API Authentication & Security
+- All `/api` endpoints (except `/health`) require authentication.
+- Uses HTTP Basic Auth with credentials stored in environment variables (`USER_ID`, `API_KEY`).
+- CORS is configured to allow requests from trusted frontend origins only.
 
-1. **Clone the repo:**
-   ```sh
-   git clone https://github.com/kammryndancy/kammryndancyAPI.git
-   cd kammryndancyAPI
-   ```
-2. **Install dependencies:**
+## How to Run (Development)
+1. **Clone the repository** and install dependencies:
    ```sh
    npm install
    ```
-3. **Configure environment:**
-   Create a `.env` file (see `.env.example`):
+2. **Configure environment variables** in a `.env` file:
    ```env
-   MONGODB_URI=mongodb://localhost:27017/kammryndancyAPI
+   MONGODB_URI=your_mongodb_connection_string
    BREWFATHER_USERID=your_brewfather_userid
    BREWFATHER_API_KEY=your_brewfather_api_key
-   PORT=3000
-   API_KEY=your_api_key
    USER_ID=your_user_id
-   FRONTEND_ORIGIN=http://localhost:3000
+   API_KEY=your_api_key
+   FRONTEND_ORIGIN=http://localhost:4200
+   PORT=3000
    ```
-4. **Start the server:**
+3. **Start the backend API:**
    ```sh
-   npm run start
-   # or for development (auto-reload):
    npm run dev
    ```
+4. **Start the Angular frontend:**
+   ```sh
+   cd kammryndancy
+   npm install
+   npm start
+   ```
 
-## Notes
-- All API requests and responses are JSON.
-- The scavenger hunt loader will upsert items from the JSON file at startup.
-- The Brewfather API requires a valid userid and API key (see their docs for details).
-- The project uses Mongoose for MongoDB object modeling.
-- User roles are supported for fine-grained access control (see `middleware/auth.js` and `middleware/roles.js`).
+## API Endpoints (Summary)
+### Health
+- `GET /health` — App and DB health check
+- `GET /health/open` — Liveness check (no DB)
+
+### Beer Recipes
+- `GET /api/beerrecipes` — List all recipes (sorted by user priority)
+- `GET /api/beerrecipes/:id` — Get recipe by ID
+- `GET /api/beerrecipes/by-name/:name` — Search recipes by name
+- `POST /api/beerrecipes` — Create recipe (auth required)
+- `PUT /api/beerrecipes/:id` — Update recipe (auth required)
+- `DELETE /api/beerrecipes/:id` — Delete recipe (auth required)
+- `POST /api/scrape` — Scrape/import from Brewfather (auth required)
+
+### Scavenger Hunt
+- `GET /api/scavengerhunt` — List all items
+- `GET /api/scavengerhunt/filter?...` — Filtered/random hunt items
+- `POST /api/scavengerhunt` — Add item (auth required)
+- `PUT /api/scavengerhunt/:name/:category/:season` — Update item (auth required)
+- `DELETE /api/scavengerhunt/:name/:category/:season` — Remove item (auth required)
+
+## Implementation Notes
+- **Backend:**
+  - Uses Mongoose for MongoDB models (BeerRecipe, ScavengerHuntItem, BlacklistedBatch).
+  - Implements CORS, authentication middleware, and environment-based config.
+  - Includes a `userPriority` field for recipe sorting.
+- **Frontend:**
+  - Angular app with modular components for brewing, scavenger hunt, and more.
+  - Environment variables (`environment.ts`) control API URL and keys.
+  - Uses modern UI/UX best practices.
+
+## Contributing
+- Pull requests and issues are welcome!
+- Please add tests for any new features or bug fixes.
 
 ## License
 MIT
